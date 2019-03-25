@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<link rel="stylesheet" type="text/css" href="./Semantic-UI-CSS-master/semantic.min.css">
-<script src="jquery.js"></script>
-<script src="./Semantic-UI-CSS-master/semantic.min.js"></script>
-<link rel="stylesheet" type="text/css" href="DataTables/datatables.min.css"/> 
-<script type="text/javascript" src="DataTables/datatables.min.js"></script>
-<script src="hotelrooms.js"></script>
+	<link rel="stylesheet" type="text/css" href="./Semantic-UI-CSS-master/semantic.min.css">
+	<link rel="stylesheet" type="text/css" href="conference.css">
+	<script src="jquery.js"></script>
+	<script src="./Semantic-UI-CSS-master/semantic.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="DataTables/datatables.min.css" />
+	<script type="text/javascript" src="DataTables/datatables.min.js"></script>
+	<script src="hotelrooms.js"></script>
 </head>
 
 <body>
@@ -26,10 +28,10 @@
 		<a class="item" href="schedule.html">
 			Schedule
 		</a>
-		<a class="item" href="jobs.html">
+		<a class="item" href="jobposting.html">
 			Job Postings
 		</a>
-		<a class="item" href="rooms.html">
+		<a class="item" href="hotelrooms.html">
 			Hotel Rooms
 		</a>
 		<a class="item" href="financials.html">
@@ -37,15 +39,16 @@
 		</a>
 	</div>
 
-	<div class="pusher">
-        <div class="ui header"></div>
-        <div class="ui text container">
-            <div class="ui input focus middle aligned">
-                <input type="text" id="search_box" placeholder="Search room number...">
-            </div>
-            <div class="ui divided middle aligned list" id="guests"></div>
-        </div>
-    </div>
+	<div class="ui grid" id="main_grid">
+		<div class="column">
+			<div class="ui text container">
+				<div class="ui input focus middle aligned">
+					<input type="text" id="search_box" placeholder="Search room number...">
+				</div>
+				<div class="ui divided middle aligned list" id="guests"></div>
+			</div>
+		</div>
 	</div>
 </body>
-</html> 
+
+</html>
