@@ -1,0 +1,18 @@
+th {
+    height: 50px;
+    font-weight: bold;
+    font-variant: small-caps;
+    text-align: center;
+}
+
+td {
+    height: 40px;
+    width: 600px;
+    padding: 0px 20px;
+    font-weight: normal;
+    text-align: center;
+}
+
+#container-div {
+    text-align: center;
+}
