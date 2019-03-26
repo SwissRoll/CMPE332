@@ -7,6 +7,19 @@ $(document).ready(function(){
     display_attendees("student");
     display_attendees("sponsor");
     display_attendees("professional");
+
+    $("#submit_button").click(function () {
+		$.post("add_attendee.php",
+			{
+                fname: $("#fname").val(),
+                lname: $("#lname").val(),
+                type:  $("#type_dropdown").find(":selected").text()
+            }, function (data,status) {
+                display_attendees("student");
+                display_attendees("sponsor");
+                display_attendees("professional");
+            });
+        });
 });
 
 function display_attendees(attendee_type){
