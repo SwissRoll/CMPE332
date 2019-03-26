@@ -9,7 +9,6 @@ $(document).ready(function(){
 });
 
 function display_committee() {
-    console.log('test');
     $.post("committee.php",
     {
         committee: $("#committee_dropdown").find(":selected").text()
