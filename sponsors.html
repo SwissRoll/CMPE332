@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<link rel="stylesheet" type="text/css" href="./Semantic-UI-CSS-master/semantic.min.css">
+	<link rel="stylesheet" type="text/css" href="sponsors.css">
+	<link rel="stylesheet" type="text/css" href="conference.css">
+	<script src="jquery.js"></script>
+	<script src="./Semantic-UI-CSS-master/semantic.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="DataTables/datatables.min.css" />
+	<script type="text/javascript" src="DataTables/datatables.min.js"></script>
+	<script src="sponsors.js"></script>
+	<script src="committee.js"></script>
+</head>
+
+<body>
+	<div class="ui left fixed inverted vertical menu">
+		<div class="item">
+			<div class="ui medium red inverted header">Conference Admin Portal</div>
+		</div>
+		<a class="item" href="committee.html">
+			Committees
+		</a>
+		<a class="item" href="attendees.html">
+			Attendees
+		</a>
+		<a class="item" href="sponsors.html">
+			Sponsors
+		</a>
+		<a class="item" href="schedule.html">
+			Schedule
+		</a>
+		<a class="item" href="jobs.html">
+			Job Postings
+		</a>
+		<a class="item" href="rooms.html">
+			Hotel Rooms
+		</a>
+		<a class="item" href="financials.html">
+			Financials
+		</a>
+	</div>
+
+<!--FUNCTIONALITY:
+	+ list the sponsors (company name) and their level of sponsorship
+
+	+ add a new sponsoring company
+	+ delete a sponsoring company and it's associated attendees
+-->
+	
+	<div class="ui grid" id="main_grid">
+		<div class="column">
+				<div class="ui header">
+					Sponsoring Companies
+				</div>
+			<div class="ui divided middle aligned list" id="sponsors_list"></div>
+		</div>
+	</div>
+
+</body>
+
+</html>
