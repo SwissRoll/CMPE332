@@ -1,9 +1,8 @@
 <?php
-$sponsor_name = $_POST["sponsor_name"];
 $pdo = new PDO('mysql:host=localhost;dbname=conference', "root", "");
 $sql = "SELECT * FROM sponsor_companies;";
 $stmt = $pdo->prepare($sql);
-$stmt->execute(array($sponsor_name));
+$stmt->execute();
 $out = "<div class=\"item\">
 	<div class=\"content\"> 
 		<table class=\"header\">
