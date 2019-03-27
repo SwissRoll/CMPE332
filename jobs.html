@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-	<link rel="stylesheet" type="text/css" href="./Semantic-UI-CSS-master/semantic.min.css">
-	<link rel="stylesheet" type="text/css" href="conference.css">
-	<script src="jquery.js"></script>
-	<script src="./Semantic-UI-CSS-master/semantic.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="DataTables/datatables.min.css" />
-	<script type="text/javascript" src="DataTables/datatables.min.js"></script>
-	<script src="jobs.js"></script>
+<link rel="stylesheet" type="text/css" href="./Semantic-UI-CSS-master/semantic.min.css">
+<script src="jquery.js"></script>
+<script src="./Semantic-UI-CSS-master/semantic.min.js"></script>
+<link rel="stylesheet" type="text/css" href="DataTables/datatables.min.css"/> 
+<link rel="stylesheet" type="text/css" href="jobs.css"/> 
+<script type="text/javascript" src="DataTables/datatables.min.js"></script>
+<script src="jobs.js"></script>
 </head>
 
 <body>
@@ -39,28 +38,15 @@
 		</a>
 	</div>
 
-	<div class="ui grid" id="main_grid">
-		<div class="column">
-			<div class="ui header">
-				Job Postings
-			</div>
-
-			<table id="job_data_table" class="ui celled table" style="width:100%">
-				<thead>
-					<tr>
-						<th>Company</th>
-						<th>Position</th>
-						<th>City</th>
-						<th>Province</th>
-						<th>Pay</th>
-					</tr>
-				</thead>
-				<tbody id="jobs">
-					
-				</tbody>
-			</table>
-		</div>
+	<div class="pusher">
+        <div class="ui header"></div>
+        <div class="ui text container" id="container-div">
+            <div class="ui input focus middle aligned">
+                <input type="text" id="search_box" placeholder="Search company name...">
+            </div>
+            <div class="ui divided middle aligned list" id="companies_list"></div>
+        </div>
+    </div>
 	</div>
 </body>
-
-</html>
+</html> 
