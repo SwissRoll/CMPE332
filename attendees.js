@@ -4,6 +4,12 @@ $(document).ready(function(){
         exclusive: false
       });
     $('.ui.dropdown').dropdown();
+
+    $("#type_dropdown").dropdown('setting', 'onChange', function(){
+        get_sponsors();
+    });
+
+    
     display_attendees("student");
     display_attendees("sponsor");
     display_attendees("professional");
@@ -13,21 +19,39 @@ $(document).ready(function(){
 			{
                 fname: $("#fname").val(),
                 lname: $("#lname").val(),
+                sponsor: $("#sponsor_dropdown").find(":selected").text(),
                 type:  $("#type_dropdown").find(":selected").text()
             }, function (data,status) {
-                display_attendees("student");
-                display_attendees("sponsor");
-                display_attendees("professional");
+                $("#response_content").text(data)
+                $('.ui.basic.modal').modal({
+                    closable  : false,
+                    onApprove : function() {
+                        display_attendees("student");
+                        display_attendees("sponsor");
+                        display_attendees("professional");
+                    }
+                  })
+                  .modal('show');
             });
         });
 });
 
 function display_attendees(attendee_type){
     $.post("display_attendees.php", {type: attendee_type}, function(data, status) {
-        $("#" + attendee_type).html(data);
+        $("#" + attendee_type +"_column").html(data);
         $("#" + attendee_type +"_data_table").DataTable({
         scrollY:        '55vh',
         scrollCollapse: true,
         paging:         false}).draw();
     });
+}
+
+
+function get_sponsors() {
+    if ($("#type_dropdown").find(":selected").text() == "sponsor") {
+        $.get("sponsor_list.php", function(data,status) {
+            $("#sponsor_selection").html(data);
+        });
+        $('.ui.dropdown').dropdown();
+    } 
 }

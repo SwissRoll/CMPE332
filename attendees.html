@@ -65,15 +65,24 @@
 							<div class="field">
 								<label>Attendee Type</label>
 								<select class="ui dropdown" id="type_dropdown">
-									<option>Student</option>
-									<option>Sponsor</option>
-									<option>Professional</option>
+									<option>student</option>
+									<option>sponsor</option>
+									<option>professional</option>
 								</select>
+
+
+							</div>
+							<div class="field" id="sponsor_selection"> 
+									<label>Sponsor Company</label>
+									<select class="ui disabled dropdown" id="sponsor_dropdown">
+										<option value="">Select Sponsor</option>
+									</select>
 							</div>
 						</div>
 
-						<button class="ui red button" id="submit_button">Submit</button>
+						
 					</form>
+					<button class="ui red button" id="submit_button">Submit</button>
 				</div>
 
 				<div class=" active title">
@@ -83,47 +92,14 @@
 				<div class=" active content">
 					<div class="ui three column stackable centered grid">
 						<div class="row">
-							<div class="column">
-								<div class="ui small header">Students</div>
-								<table id="student_data_table" class="ui celled table" style="width:100%">
-									<thead>
-										<tr>
-											<th>First Name</th>
-											<th>Last Name</th>
-										</tr>
-									</thead>
-									<tbody id="student">
-
-									</tbody>
-								</table>
+							<div class="column" id="student_column">
+								
 							</div>
-							<div class="column">
-								<div class="ui small header">Sponsors</div>
-								<table id="sponsor_data_table" class="ui celled table" style="width:100%">
-									<thead>
-										<tr>
-											<th>First Name</th>
-											<th>Last Name</th>
-										</tr>
-									</thead>
-									<tbody id="sponsor">
-
-									</tbody>
-								</table>
+							<div class="column" id="sponsor_column">
+								
 							</div>
-							<div class="column">
-								<div class="ui small header">Professionals</div>
-								<table id="professional_data_table" class="ui celled table" style="width:100%">
-									<thead>
-										<tr>
-											<th>First Name</th>
-											<th>Last Name</th>
-										</tr>
-									</thead>
-									<tbody id="professional">
-
-									</tbody>
-								</table>
+							<div class="column" id="professional_column">
+								
 							</div>
 						</div>
 					</div>
@@ -132,5 +108,18 @@
 		</div>
 	</div>
 </body>
+
+
+<div class="ui basic modal">
+	<div class="centered content">
+		<p id="response_content"></p>
+	</div>
+	<div class="actions">
+		<div class="ui approve button">
+			<i class="checkmark icon"></i>
+			Ok
+		</div>
+	</div>
+</div>
 
 </html>
