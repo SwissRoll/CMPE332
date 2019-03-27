@@ -1,17 +1,14 @@
 $(document).ready(function(){
-    display_guests()
-    
-    $("#search_box").on('input', function(){
-        display_guests()
-    });
+    display_jobs()
 });
 
-function display_guests() {
-    console.log($("#search_box").val());
-    $.post("jobs.php",
-    {
-        companies: $("#search_box").val()
-    }, function(data, status) {
-        $("#companies_list").html(data);
+function display_jobs() {
+    $("#jobs").html("<div class=\"ui active inverted dimmer\"><div class=\"ui text loader\">Loading</div></div>");
+    $.get("jobs.php", function(data, status) {
+        $("#jobs").html(data);
+        $("#job_data_table").DataTable({
+            scrollY:        '55vh',
+            scrollCollapse: true,
+            paging:         false}).draw();
     });
 }
