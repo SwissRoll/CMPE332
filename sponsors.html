@@ -3,14 +3,12 @@
 
 <head>
 	<link rel="stylesheet" type="text/css" href="./Semantic-UI-CSS-master/semantic.min.css">
-	<link rel="stylesheet" type="text/css" href="sponsors.css">
-	<link rel="stylesheet" type="text/css" href="conference.css">
 	<script src="jquery.js"></script>
 	<script src="./Semantic-UI-CSS-master/semantic.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="DataTables/datatables.min.css" />
 	<script type="text/javascript" src="DataTables/datatables.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="sponsors.css">
 	<script src="sponsors.js"></script>
-	<script src="committee.js"></script>
 </head>
 
 <body>
@@ -43,15 +41,50 @@
 
 <!--FUNCTIONALITY:
 	+ list the sponsors (company name) and their level of sponsorship
-
 	+ add a new sponsoring company
 	+ delete a sponsoring company and it's associated attendees
 -->
 	
 	<div class="ui grid" id="main_grid">
 		<div class="column">
-				<div class="ui header">
-					Sponsoring Companies
+			<div class="ui styled fluid accordion">
+					<div class="title">
+						<i class="dropdown icon"></i>
+						Register New User
+					</div>
+					<div class="content">
+						<form class="ui form">
+							<div class="fields">
+								<div class="field">
+									<label>First name</label>
+									<input type="text" placeholder="First Name" id="fname">
+								</div>
+								<div class="field">
+									<label>Last name</label>
+									<input type="text" placeholder="Last Name" id="lname">
+								</div>
+								<div class="field">
+									<label>Attendee Type</label>
+									<select class="ui dropdown" id="type_dropdown">
+										<option>student</option>
+										<option>sponsor</option>
+										<option>professional</option>
+									</select>
+
+
+								</div>
+								<div class="field" id="sponsor_selection"> 
+										<label>Sponsor Company</label>
+										<select class="ui disabled dropdown" id="sponsor_dropdown">
+											<option value="">Select Sponsor</option>
+										</select>
+								</div>
+							</div>
+
+							
+						</form>
+						<button class="ui red button" id="submit_button">Submit</button>
+					</div>
 				</div>
 			<div class="ui divided middle aligned list" id="sponsors_list"></div>
 		</div>
