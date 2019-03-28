@@ -1,33 +1,37 @@
 $(document).ready(function(){
+	display_sponsor_info();
+	
 	$('.ui.sidebar').sidebar();
     $('.ui.accordion').accordion({
         exclusive: false
       });
     $('.ui.dropdown').dropdown();
 	
+	$("#type_dropdown").dropdown('setting', 'onChange', function(){
+        get_sponsors();
+    });
+	
 	// TO CHANGE
 	$("#submit_button").click(function () {
 		$.post("add_sponsor.php",
 			{
-                fname: $("#fname").val(),
-                lname: $("#lname").val(),
-                sponsor: $("#sponsor_dropdown").find(":selected").text(),
-                type:  $("#type_dropdown").find(":selected").text()
+                name: $("#name").val(),
+                tier: $("#tier").val(),
+                cost: $("#cost").val(),
             }, function (data,status) {
                 $("#response_content").text(data)
                 $('.ui.basic.modal').modal({
                     closable  : false,
                     onApprove : function() {
-                        display_attendees("student");
+                       /* display_attendees("student");
                         display_attendees("sponsor");
-                        display_attendees("professional");
+                        display_attendees("professional");*/
                     }
                   })
                   .modal('show');
             });
         });
 	
-    display_sponsor_info();
 });
 
 function display_sponsor_info() {

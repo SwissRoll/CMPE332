@@ -47,45 +47,36 @@
 	
 	<div class="ui grid" id="main_grid">
 		<div class="column">
-			<div class="ui styled fluid accordion">
-					<div class="title">
-						<i class="dropdown icon"></i>
-						Register New User
+		<div class="ui header">
+				Sponsor Management
+			</div>
+				<div class="ui styled fluid accordion">
+						<div class="title">
+							<i class="dropdown icon"></i>
+							Register New Sponsor
+						</div>
+						<div class="content">
+							<form class="ui form">
+								<div class="fields">
+									<div class="field">
+										<label>Company Name</label>
+										<input type="text" placeholder="Company Name" id="cname">
+									</div>
+									<div class="field">
+										<label>Tier</label>
+										<input type="text" placeholder="Tier" id="tier">
+									</div>
+									<div class="field">
+										<label>Sponsor Amount</label>
+										<input type="text" placeholder="Sponsor Amount" id="amount">
+									</div>
+								</div>
+
+								
+							</form>
+							<button class="ui red button" id="submit_button">Submit</button>
+						</div>
 					</div>
-					<div class="content">
-						<form class="ui form">
-							<div class="fields">
-								<div class="field">
-									<label>First name</label>
-									<input type="text" placeholder="First Name" id="fname">
-								</div>
-								<div class="field">
-									<label>Last name</label>
-									<input type="text" placeholder="Last Name" id="lname">
-								</div>
-								<div class="field">
-									<label>Attendee Type</label>
-									<select class="ui dropdown" id="type_dropdown">
-										<option>student</option>
-										<option>sponsor</option>
-										<option>professional</option>
-									</select>
-
-
-								</div>
-								<div class="field" id="sponsor_selection"> 
-										<label>Sponsor Company</label>
-										<select class="ui disabled dropdown" id="sponsor_dropdown">
-											<option value="">Select Sponsor</option>
-										</select>
-								</div>
-							</div>
-
-							
-						</form>
-						<button class="ui red button" id="submit_button">Submit</button>
-					</div>
-				</div>
 			<div class="ui divided middle aligned list" id="sponsors_list"></div>
 		</div>
 	</div>

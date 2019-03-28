@@ -3,8 +3,7 @@ th {
     font-weight: bold;
     font-variant: small-caps;
     text-align: center;
-	border-style: solid;
-	border-color: red;
+	/*border-style: solid;*/
 }
 
 td {
@@ -17,4 +16,11 @@ td {
 
 #container-div {
     text-align: center;
+}
+
+#main_grid {
+    margin-top: -1rem;
+    margin-bottom: -1rem;
+    margin-left: 16rem;
+    margin-right: 1rem;
 }
