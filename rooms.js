@@ -8,7 +8,7 @@ $(document).ready(function(){
 
 function display_guests() {
     console.log($("#search_box").val());
-    $.post("hotelrooms.php",
+    $.post("rooms.php",
     {
         guests_list: $("#search_box").val()
     }, function(data, status) {
