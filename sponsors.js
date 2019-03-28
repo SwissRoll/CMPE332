@@ -15,17 +15,15 @@ $(document).ready(function(){
 	$("#submit_button").click(function () {
 		$.post("add_sponsor.php",
 			{
-                name: $("#name").val(),
+                name: $("#cname").val(),
                 tier: $("#tier").val(),
-                cost: $("#cost").val(),
+                cost: $("#amount").val()
             }, function (data,status) {
                 $("#response_content").text(data)
                 $('.ui.basic.modal').modal({
                     closable  : false,
                     onApprove : function() {
-                       /* display_attendees("student");
-                        display_attendees("sponsor");
-                        display_attendees("professional");*/
+                      display_sponsor_info();
                     }
                   })
                   .modal('show');
