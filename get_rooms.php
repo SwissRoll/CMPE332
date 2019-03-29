@@ -1,6 +1,6 @@
 <?php
     $pdo = new PDO('mysql:host=localhost;dbname=conference', "root", "");
-    $sql = "SELECT DISTINCT roomNum FROM hotel_rooms ORDER BY roomNum ASC";
+    $sql = "SELECT hotel_rooms.roomNum FROM students right join hotel_rooms on students.roomNum = hotel_rooms.roomNum group by hotel_rooms.roomNum having COUNT(aID) > 0";
     $stmt = $pdo->prepare($sql);
     $stmt->execute();
 
