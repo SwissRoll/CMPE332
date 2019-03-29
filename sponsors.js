@@ -11,8 +11,6 @@ $(document).ready(function(){
         get_sponsors();
     });*/
 	
-	get_sponsors();
-	
 	
 	$("#submit_button").click(function () {
 		$.post("add_sponsor.php",

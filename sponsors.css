@@ -3,7 +3,6 @@ th {
     font-weight: bold;
     font-variant: small-caps;
     text-align: center;
-	/*border-style: solid;*/
 }
 
 td {
@@ -23,4 +22,8 @@ td {
     margin-bottom: -1rem;
     margin-left: 16rem;
     margin-right: 1rem;
+}
+
+#submit_button {
+	margin-left: 10px;
 }
