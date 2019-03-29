@@ -4,135 +4,92 @@
 <head>
     <link rel="stylesheet" type="text/css" href="./Semantic-UI-CSS-master/semantic.min.css">
     <script src="jquery.js"></script>
-	<link rel="stylesheet" type="text/css" href="conference.css">
+    <link rel="stylesheet" type="text/css" href="conference.css">
     <script src="./Semantic-UI-CSS-master/semantic.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="DataTables/datatables.min.css"/> 
+    <link rel="stylesheet" type="text/css" href="DataTables/datatables.min.css" />
     <script type="text/javascript" src="DataTables/datatables.min.js"></script>
     <script src="financials.js"></script>
 </head>
 
 <body>
-	<div class="ui left fixed inverted vertical menu">
-		<div class="item">
-			<div class="ui medium red inverted header">Conference Admin Portal</div>
-		</div>
-		<a class="item" href="committee.html">
-			Committees
-		</a>
-		<a class="item" href="attendees.html">
-			Attendees
-		</a>
-		<a class="item" href="sponsors.html">
-			Sponsors
-		</a>
-		<a class="item" href="schedule.html">
-			Schedule
-		</a>
-		<a class="item" href="jobs.html">
-			Job Postings
-		</a>
-		<a class="item" href="rooms.html">
-			Hotel Rooms
-		</a>
-		<a class="item" href="financials.html">
-			Financials
-		</a>
-	</div>
-
-<div class="ui grid" id="main_grid">
-    <div class="column">
-        <div class="ui header">
-            Financial Breakdown
+    <div class="ui left fixed inverted vertical menu">
+        <div class="item">
+            <div class="ui medium red inverted header">Conference Admin Portal</div>
         </div>
-        <div class="ui styled fluid accordion">
-            <div class=" active title">
-                <i class="dropdown icon"></i>
-                Attendees
-            </div>
-            <div class=" active content">
-                <div class="row">
-                    <div class="column">
-                        <div class="ui small header">Students - $50</div>
-                        <table id="student_data_table" class="ui celled table" style="width:100%">
-                            <thead>
-                                <tr>
-                                    <th>First Name</th>
-                                    <th>Last Name</th>
-                                </tr>
-                            </thead>
-                            <tbody id="student">
-                            </tbody>
-                            <tfoot id="student_total">
-                            </tfoot>
-                        </table>
+        <a class="item" href="committee.html">
+            Committees
+        </a>
+        <a class="item" href="attendees.html">
+            Attendees
+        </a>
+        <a class="item" href="sponsors.html">
+            Sponsors
+        </a>
+        <a class="item" href="schedule.html">
+            Schedule
+        </a>
+        <a class="item" href="jobs.html">
+            Job Postings
+        </a>
+        <a class="item" href="rooms.html">
+            Hotel Rooms
+        </a>
+        <a class="item" href="financials.html">
+            Financials
+        </a>
+    </div>
 
-                        <div class="ui small header">Professionals - $100</div>
-                        <table id="professional_data_table" class="ui celled table" style="width:100%">
-                            <thead>
-                                <tr>
-                                    <th>First Name</th>
-                                    <th>Last Name</th>
-                                </tr>
-                            </thead>
-                            <tbody id="professional">
-                            </tbody>
-                            <tfoot id="professional_total">
-                            </tfoot>
-                        </table>
-                    </div>
-                </div>
+    <div class="ui grid" id="main_grid">
+        <div class="column">
+            <div class="ui header">
+                Financial Breakdown
             </div>
-        </div>
 
-        <div class="ui styled fluid accordion">
-            <div class=" active title">
-                <i class="dropdown icon"></i>
-                Sponsors
+            <div class="ui small header">
+                Attendance Summary
             </div>
-            <div class=" active content">
-                <div class="row">
-                    <div class="column">
-                        <table id="sponsor_data_table" class="ui celled table" style="width:100%">
-                            <thead>
-                                <tr>
-                                    <th>Company Name</th>
-                                    <th>Donation</th>
-                                </tr>
-                            </thead>
-                            <tbody id="sponsor">
-                            </tbody>
-                            <tfoot id="sponsor_total"></tfoot>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
 
-        <div class="ui styled fluid accordion">
-                <div class=" active title">
-                    <i class="dropdown icon"></i>
-                    Totals
-                </div>
-                <div class=" active content">
-                    <div class="row">
-                        <div class="column">
-                            <table id="total_data_table" class="ui celled table" style="width:100%">
-                                <thead>
-                                    <tr>
-                                        <th>Income Source</th>
-                                        <th>Total from Source</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="total">
-                                </tbody>
-                                <tfoot id="total_total">
-                                </tfoot>
-                            </table>
-                        </div>
-                    </div>
-                </div>
+            <table class="ui celled table">
+                <thead>
+                    <tr>
+                        <th>Attendee Type</th>
+                        <th>Total Attendees</th>
+                        <th>Individiual Registration Cost ($)</th>
+                        <th>Total Registration Cost ($)</th>
+                    </tr>
+                </thead>
+                <tbody id="attendees">
+                </tbody>
+            </table>
+
+            <div class="ui small header">
+                Sponsorship Summary
             </div>
+
+            <table class="ui celled table">
+                <thead>
+                    <tr>
+                        <th>Company Name</th>
+                        <th>Sponsorship Tier</th>
+                        <th>Sponsorship Cost ($)</th>
+                    </tr>
+                </thead>
+                <tbody id="sponsors">
+                </tbody>
+            </table>
+
+            <div class="ui small header">
+                    Total Intake Summary
+            </div>
+
+            <table class="ui celled table">
+                    <tbody id="intake">
+                    </tbody>
+            </table>
+
+
         </div>
     </div>
-</div>
-</body>0</html> 
+</body>
+
+</html>
