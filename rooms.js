@@ -1,17 +1,26 @@
 $(document).ready(function(){
+    get_rooms();
     display_guests()
     
-    $("#search_box").on('input', function(){
-        display_guests()
+    
+    
+    $("#rooms").dropdown('setting', 'onChange', function(){
+        display_guests();
     });
 });
 
 function display_guests() {
-    console.log($("#search_box").val());
     $.post("rooms.php",
     {
-        guests_list: $("#search_box").val()
+        room: $("#rooms").find(":selected").text()
     }, function(data, status) {
         $("#guests").html(data);
     });
+}
+
+function get_rooms() {
+    $.get("get_rooms.php", function(data, status) {
+        $("#rooms").html(data);
+    });
+
 }

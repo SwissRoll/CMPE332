@@ -1,5 +1,6 @@
 $(document).ready(function(){
-	display_sponsor_info();
+    get_companies();
+    display_sponsors();
 	
 	$('.ui.sidebar').sidebar();
     $('.ui.accordion').accordion({
@@ -7,23 +8,21 @@ $(document).ready(function(){
       });
     $('.ui.dropdown').dropdown();
 	
-	/*$("#type_dropdown").dropdown('setting', 'onChange', function(){
-        get_sponsors();
-    });*/
 	
-	
-	$("#submit_button").click(function () {
+	$("#add_button").click(function () {
 		$.post("add_sponsor.php",
 			{
-                name: $("#cname").val(),
-                tier: $("#tier").val(),
-                cost: $("#amount").val()
+                name: $("#company_name").val(),
+                tier: $("#tier_dropdown").find(":selected").text(),
+                cost: $("#cost").val()
             }, function (data,status) {
                 $("#response_content").text(data)
-                $('.ui.basic.modal').modal({
+                $('.ui.mini.modal').modal({
                     closable  : false,
                     onApprove : function() {
-                      display_sponsor_info();
+                        display_sponsors();
+                        get_companies();
+                        $('.ui.dropdown').dropdown("refresh");
                     }
                   })
                   .modal('show');
@@ -33,13 +32,15 @@ $(document).ready(function(){
 	$("#delete_button").click(function () {
 		$.post("delete_sponsor.php",
 			{
-                company: $("#company").val()
+                company: $("#company_dropdown").find(":selected").text()
             }, function (data,status) {
                 $("#response_content").text(data)
-                $('.ui.basic.modal').modal({
+                $('.ui.mini.modal').modal({
                     closable  : false,
                     onApprove : function() {
-                      display_sponsor_info();
+                        display_sponsors();
+                        get_companies();
+                        $('.ui.dropdown').dropdown("refresh");
                     }
                   })
                   .modal('show');
@@ -48,15 +49,19 @@ $(document).ready(function(){
 	
 });
 
-function display_sponsor_info() {
-	$.get("sponsors.php", {sponsor_name: "sponsor"}, function(data, status) {
-	$("#sponsors_list").html(data);
-	});
+function display_sponsors(){
+    $.get("display_sponsors.php", function(data, status) {
+        $("#sponsor_content").html(data);
+        $("#sponsor_data_table").DataTable({
+        scrollY:        '55vh',
+        scrollCollapse: true,
+        paging:         false}).draw();
+    });
 }
 
-function get_sponsors() {
-	$.get("sponsor_list.php", function(data,status) {
-            $("#sponsor_dropdown").html(data);
+
+function get_companies() {
+	$.get("get_companies.php", function(data,status) {
+            $("#company_dropdown").html(data);
         });
-	$('.ui.dropdown').dropdown();
 }

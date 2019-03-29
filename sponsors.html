@@ -3,11 +3,11 @@
 
 <head>
 	<link rel="stylesheet" type="text/css" href="./Semantic-UI-CSS-master/semantic.min.css">
+	<link rel="stylesheet" type="text/css" href="conference.css">
 	<script src="jquery.js"></script>
 	<script src="./Semantic-UI-CSS-master/semantic.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="DataTables/datatables.min.css" />
 	<script type="text/javascript" src="DataTables/datatables.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="sponsors.css">
 	<script src="sponsors.js"></script>
 </head>
 
@@ -39,67 +39,89 @@
 		</a>
 	</div>
 
-<!--FUNCTIONALITY:
+	<!--FUNCTIONALITY:
 	+ list the sponsors (company name) and their level of sponsorship
 	+ add a new sponsoring company
 	+ delete a sponsoring company and it's associated attendees
 -->
-	
+
 	<div class="ui grid" id="main_grid">
 		<div class="column">
-		<div class="ui header">
+			<div class="ui header">
 				Sponsor Management
 			</div>
-				<div class="ui styled fluid accordion">
-						<div class="title">
-							<i class="dropdown icon"></i>
-							Register New Sponsor
-						</div>
-						<div class="content">
-							<form class="ui form">
-								<div class="fields">
-									<div class="field">
-										<label>Company Name</label>
-										<input type="text" placeholder="Company Name" id="cname">
-									</div>
-									<div class="field">
-										<label>Tier</label>
-										<input type="text" placeholder="Tier" id="tier">
-									</div>
-									<div class="field">
-										<label>Sponsor Amount</label>
-										<input type="text" placeholder="Sponsor Amount" id="amount">
-									</div>
+			<div class="ui styled fluid accordion">
+				<div class="title">
+					<i class="dropdown icon"></i>
+					Register New Sponsor
+				</div>
+				<div class="content">
+					<form class="ui form">
+						<div class="fields">
+							<div class="field">
+								<label>Company Name</label>
+								<input type="text" placeholder="Company Name" id="company_name">
+							</div>
+							<div class="field">
+									<label>Sponsorship Cost</label>
+									<input type="text" placeholder="Sponsorship Cost" id="cost">
 								</div>
 
-								
-							</form>
-							<button class="ui green button" id="submit_button">Submit</button>
+							<div class="field">
+								<label> Sponsorship Level</label>
+								<select class="ui dropdown" id="tier_dropdown">
+									<option>Platinum</option>
+									<option>Gold</option>
+									<option>Silver</option>
+									<option>Bronze</option>
+								</select>
+							</div>
+
 						</div>
-					</div>			
-			<div class="ui divided" id="sponsors_list"></div>
-			
-			<div class="ui header small">Delete a sponsor</div>
-            <div class="ui input">
-                <input type="text" id="company" placeholder="Search company name...">
-				<button class="ui red button" id="delete_button">Delete company</button>
-            </div>
-			
+
+
+					</form>
+					<button class="ui green button" id="add_button">Add</button>
+				</div>
+
+				<div class="title">
+					<i class="dropdown icon"></i>
+					Delete Sponsor
+				</div>
+				<div class="content">
+					<form class="ui form">
+						<div class="fields">
+							<div class="field">
+								<label>Company Name</label>
+								<select class="ui search  dropdown" id="company_dropdown"></select>
+							</div>
+						</div>
+
+
+					</form>
+					<button class="ui red button" id="delete_button">Delete</button>
+				</div>
+
+
+				<div class=" active title">
+					<i class="dropdown icon"></i>
+					Sponsors
+				</div>
+				<div class=" active content" id="sponsor_content">
+
+				</div>
+			</div>
 		</div>
 	</div>
-
 </body>
-
-<div class="ui basic modal">
-	<div class="centered content">
-		<p id="response_content"></p>
-	</div>
-	<div class="actions">
-		<div class="ui approve button">
-			<i class="checkmark icon"></i>
-			Ok
+<div class="ui mini modal">
+		<i class="close icon"></i>
+		<div class="header" id="response_content">	</div>
+		<div class="actions">
+			<div class="ui black approve button">
+				Ok
+			</div>
 		</div>
 	</div>
-</div>
 
 </html>

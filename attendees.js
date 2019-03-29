@@ -23,7 +23,7 @@ $(document).ready(function(){
                 type:  $("#type_dropdown").find(":selected").text()
             }, function (data,status) {
                 $("#response_content").text(data)
-                $('.ui.basic.modal').modal({
+                $('.ui.mini.modal').modal({
                     closable  : false,
                     onApprove : function() {
                         display_attendees("student");
@@ -52,6 +52,9 @@ function get_sponsors() {
         $.get("sponsor_list.php", function(data,status) {
             $("#sponsor_selection").html(data);
         });
-        $('.ui.dropdown').dropdown();
-    } 
+        $('.ui.dropdown').dropdown("refresh");
+    } else {
+        $("#sponsor_selection").html("<label>Sponsor Company</label><select class=\"ui disabled dropdown\" id=\"sponsor_dropdown\"><option value=\"\">Select Sponsor</option></select>");
+        $('.ui.dropdown').dropdown("refresh");
+    }
 }
