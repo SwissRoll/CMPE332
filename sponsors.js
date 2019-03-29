@@ -7,11 +7,13 @@ $(document).ready(function(){
       });
     $('.ui.dropdown').dropdown();
 	
-	$("#type_dropdown").dropdown('setting', 'onChange', function(){
+	/*$("#type_dropdown").dropdown('setting', 'onChange', function(){
         get_sponsors();
-    });
+    });*/
 	
-	// TO CHANGE
+	get_sponsors();
+	
+	
 	$("#submit_button").click(function () {
 		$.post("add_sponsor.php",
 			{
@@ -29,21 +31,34 @@ $(document).ready(function(){
                   .modal('show');
             });
         });
+		
+	$("#delete_button").click(function () {
+		$.post("delete_sponsor.php",
+			{
+                company: $("#company").val()
+            }, function (data,status) {
+                $("#response_content").text(data)
+                $('.ui.basic.modal').modal({
+                    closable  : false,
+                    onApprove : function() {
+                      display_sponsor_info();
+                    }
+                  })
+                  .modal('show');
+            });
+        });
 	
 });
 
 function display_sponsor_info() {
 	$.get("sponsors.php", {sponsor_name: "sponsor"}, function(data, status) {
 	$("#sponsors_list").html(data);
-});
+	});
 }
 
-//TO CHANGE
 function get_sponsors() {
-    if ($("#type_dropdown").find(":selected").text() == "sponsor") {
-        $.get("sponsor_list.php", function(data,status) {
-            $("#sponsor_selection").html(data);
+	$.get("sponsor_list.php", function(data,status) {
+            $("#sponsor_dropdown").html(data);
         });
-        $('.ui.dropdown').dropdown();
-    } 
+	$('.ui.dropdown').dropdown();
 }
