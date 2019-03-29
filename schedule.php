@@ -38,7 +38,7 @@
         echo "<div class=\"ui small dividing header\">" . $day . "</div>";
         echo "<div class=\"ui divided list\">";
         
-        $sql = "SELECT sName, roomNum, startTime, endTime FROM sessions WHERE day = ? ORDER BY startTime ASC";
+        $sql = "SELECT  fname, lname, sName, roomNum, startTime, endTime FROM sessions natural join speakers natural join attendees  WHERE day = ? ORDER BY startTime ASC";
         $new_stmt = $pdo->prepare($sql);
         $new_stmt->execute(array($day));
 
@@ -49,6 +49,7 @@
             echo "<a class=\"header\">" . $new_row["sName"] . "</a>";
             echo "<div class=\"description\">";
             echo "<div class=\"list\">";
+            echo "<div class=\"item\">Speaker: " . $new_row["fname"] . " " . $new_row["lname"] . "</div>";
             echo "<div class=\"item\">Room: " . $new_row["roomNum"] . "</div>";
             echo "<div class=\"item\">Start Time: " . $new_row["startTime"] . "</div>";
             echo "<div class=\"item\">End Time: " . $new_row["endTime"] . "</div>";
